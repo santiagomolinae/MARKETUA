@@ -1,3 +1,4 @@
 # MARKETUA
 
-Ionic serve
+- npm i
+- Ionic serve
