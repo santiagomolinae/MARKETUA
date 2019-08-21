@@ -24,7 +24,6 @@ export class HomePage implements OnInit {
   findProduct() {
     this.http.get<any>(`https://api.mercadolibre.com/sites/MCO/search?q=${this.serchText}`, {}).subscribe(res => {
       this.products = res.results;
-      console.log(res);
     });
   }
 }
