@@ -1,4 +1,3 @@
-import { CardDetailComponent } from './components/card-detail/card-detail.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -10,20 +9,23 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CardDetailComponent
+    AppComponent
   ],
   entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
     IonicStorageModule.forRoot(),
-    AppRoutingModule],
+    AppRoutingModule,
+    HttpClientModule
+  ],
   providers: [
     StatusBar,
     SplashScreen,

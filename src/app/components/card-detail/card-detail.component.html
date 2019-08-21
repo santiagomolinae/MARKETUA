@@ -1,3 +1,14 @@
-<p>
-  card-detail works!
-</p>
+<ion-card>
+  <ion-thumbnail slot="center">
+    <ion-img [src]="product.thumbnail"></ion-img>
+  </ion-thumbnail>
+  <ion-card-header>
+    <ion-card-subtitle>{{product.price | currency}}$</ion-card-subtitle>
+    <ion-card-title>{{product.title}}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-button color="secondary">
+      <ion-icon slot="icon-only" name="cart"></ion-icon>
+    </ion-button>
+  </ion-card-content>
+</ion-card>
