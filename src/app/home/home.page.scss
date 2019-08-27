@@ -1,1 +1,13 @@
+.input-item{
+    color: var(--ion-color-text-gray);
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
 
+ion-card{
+    --background: red !important;
+    --ion-color-base: red !important;
+    --background-size: cover !important;
+}

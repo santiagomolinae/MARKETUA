@@ -1,13 +1,13 @@
-<ion-card>
+<ion-card class="card">
   <ion-thumbnail slot="center">
     <ion-img [src]="product.thumbnail"></ion-img>
   </ion-thumbnail>
-  <ion-card-header>
-    <ion-card-subtitle>{{product.price | currency}}$</ion-card-subtitle>
-    <ion-card-title>{{product.title}}</ion-card-title>
+  <ion-card-header class="header">
+    <ion-card-subtitle class="price">{{product.price | currency}}$</ion-card-subtitle>
+    <ion-card-title class="title">{{product.title}}</ion-card-title>
   </ion-card-header>
-  <ion-card-content>
-    <ion-button color="secondary">
+  <ion-card-content class="content">
+    <ion-button color="primary" class="button">
       <ion-icon slot="icon-only" name="cart"></ion-icon>
     </ion-button>
   </ion-card-content>
