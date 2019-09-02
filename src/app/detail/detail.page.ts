@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-detail',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailPage implements OnInit {
 
-  constructor() { }
+  public product: any;
+
+  constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
   ngOnInit() {
+    this.product = this.productService.product
+    history.state.data
+    console.log(this.product);
+
   }
 
 }
