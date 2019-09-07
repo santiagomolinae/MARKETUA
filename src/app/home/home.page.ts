@@ -26,4 +26,8 @@ export class HomePage implements OnInit {
       this.products = res.results;
     });
   }
+
+  getCar(){
+    this.products=this.carService.getCar();
+  }
 }

@@ -1,9 +1,39 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>car</ion-title>
+<!-- <ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      MARKETUA
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="light">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
+          <div class="products" *ngIf="product">
+            <app-car *ngFor="let prod of products" [product]="prod">
+                <ion-card class="card">
+                    <ion-card-header class="header">
+                      <ion-card-title class="title">{{product}}</ion-card-title>
+                    </ion-card-header>
+                  </ion-card>
+            </app-car>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
 
-</ion-content>
+<ion-footer>
+  <ion-toolbar>
+      <ion-button color="primary" class="button" expand="block" type="submit" href="./home">
+          Inicio
+        </ion-button>
+  </ion-toolbar>
+</ion-footer>  
+-->
+<ion-card class="card">
+    <ion-card-header class="header">
+      <ion-card-title class="title">{{product}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
