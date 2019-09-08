@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../services/product.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-detail',
@@ -9,15 +9,26 @@ import { ProductService } from '../services/product.service';
 })
 export class DetailPage implements OnInit {
 
-  public product: any;
+  //public product: any;
+  idProduct: any;
+  product: any;
 
-  constructor(private route: ActivatedRoute, private productService: ProductService) { }
+
+  constructor(
+    private route: ActivatedRoute,
+    private http: HttpClient) { 
+  }
 
   ngOnInit() {
-    this.product = this.productService.product
-    history.state.data
-    console.log(this.product);
+    this.findProduct()
+  }
 
+  findProduct() {
+    this.idProduct = this.route.snapshot.paramMap.get('id');
+    this.http.get<any>(`https://api.mercadolibre.com/items/${this.idProduct}`, {}).subscribe(res => {
+      this.product = res;
+      console.log(this.product);
+    });
   }
 
 }

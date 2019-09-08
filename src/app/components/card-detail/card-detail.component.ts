@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ProductService } from 'src/app/services/product.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,13 +10,13 @@ export class CardDetailComponent implements OnInit {
 
   @Input() product: any;
 
-  constructor(private productService: ProductService, private router: Router) { }
+  constructor( private router: Router) { }
 
-  ngOnInit() {
+  presentDetail(){
+    let id = this.product.id
+    this.router.navigate(['/detail', id])
   }
 
-  sendProduct(){
-    this.productService.product = this.product
-    this.router.navigate(['/detail',this.product.id])
+  ngOnInit() {
   }
 }
