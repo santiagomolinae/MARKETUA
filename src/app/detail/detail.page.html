@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Product</ion-title>
+    <ion-title>Producto</ion-title>
     <ion-buttons slot="start">
       <ion-back-button 
       [text]="Home">
@@ -8,7 +8,6 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content color="light" fullscreen>
   <ion-card>
     <ion-thumbnail slot="center">
@@ -19,4 +18,12 @@
       <ion-card-content>
       </ion-card-content>
   </ion-card>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button color="primary">
+        <ion-icon name="cart"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
 </ion-content>
+<ion-footer>
+    <ion-button color="primary" expand="block" >Ver Carrito</ion-button>
+</ion-footer>
