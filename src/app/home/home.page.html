@@ -22,11 +22,8 @@
 
 <ion-footer>
   <ion-toolbar>
-      <ion-button color="primary" class="button" expand="block" type="submit" (click)="getCar()" >
+      <ion-button color="primary" class="button" expand="block" type="submit" (click)="getCar()" href="./car" >
           <ion-icon slot="icon-only" name="cart"></ion-icon> Ver carrito
         </ion-button>
-        <div class="products" *ngIf="products">
-            <app-car *ngFor="let prod of products" [product]="prod"></app-car>
-          </div>
   </ion-toolbar>
 </ion-footer>
