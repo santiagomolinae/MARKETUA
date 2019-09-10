@@ -25,7 +25,7 @@ export class DetailPage implements OnInit {
 
   findProduct() {
     this.idProduct = this.route.snapshot.paramMap.get('id');
-    this.http.get<any>(`https://api.mercadolibre.com/items/${this.idProduct}`, {}).subscribe(res => {
+    this.http.get<any>(`https://my-json-server.typicode.com/ebedoyaalzate/fakeProducts/products/1`, {}).subscribe(res => {
       this.product = res;
       console.log(this.product);
     });

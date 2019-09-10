@@ -1,8 +1,16 @@
 ion-card{
-    display: flex;
+    display: block;
     flex-direction: column;
     padding: 5px;
 }
+
+ion-img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
 .title{
     text-align: center;
 }
