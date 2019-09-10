@@ -16,8 +16,6 @@ export class HomePage implements OnInit {
   products: ProductDetail[];
 
   constructor(
-    private carService: CarService,
-    private http: HttpClient,
     private productService: ProductService) {
   }
 
