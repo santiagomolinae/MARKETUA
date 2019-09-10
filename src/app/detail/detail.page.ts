@@ -1,3 +1,4 @@
+import { ProductDetail } from './../models/productDetail';
 import { ProductService } from './../services/product/product.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -10,22 +11,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DetailPage implements OnInit {
 
-  idProduct: any;
-  product: any;
-
+  idProduct: string;
+  product: ProductDetail;
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService) {}
 
   ngOnInit() {
-    this.findProduct()
+    this.findProduct();
   }
 
   findProduct() {
     this.idProduct = this.route.snapshot.paramMap.get('id');
     this.productService.productDetail(this.idProduct).subscribe(res => {
-      console.log(res);
       this.product = res;
     });
   }
