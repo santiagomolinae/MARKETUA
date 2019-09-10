@@ -1,3 +1,4 @@
+import { ProductService } from './../services/product/product.service';
 import { CarService } from './../services/car.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -10,20 +11,21 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomePage implements OnInit {
 
-  serchText = '';
+  searchText = '';
   products: any;
 
   constructor(
     private carService: CarService,
-    private http: HttpClient) {
+    private http: HttpClient,
+    private productService: ProductService) {
   }
 
   ngOnInit() {
   }
 
   findProduct() {
-    this.http.get<any>(`https://api.mercadolibre.com/sites/MCO/search?q=${this.serchText}`, {}).subscribe(res => {
-      this.products = res.results;
+    this.productService.findProducts(this.searchText).subscribe(res => {
+      this.products = res.products;
     });
   }
 }

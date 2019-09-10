@@ -1,3 +1,4 @@
+import { ProductService } from './../services/product/product.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -9,15 +10,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DetailPage implements OnInit {
 
-  //public product: any;
   idProduct: any;
   product: any;
 
 
   constructor(
     private route: ActivatedRoute,
-    private http: HttpClient) { 
-  }
+    private productService: ProductService) {}
 
   ngOnInit() {
     this.findProduct()
@@ -25,10 +24,9 @@ export class DetailPage implements OnInit {
 
   findProduct() {
     this.idProduct = this.route.snapshot.paramMap.get('id');
-    this.http.get<any>(`https://my-json-server.typicode.com/ebedoyaalzate/fakeProducts/products/1`, {}).subscribe(res => {
+    this.productService.productDetail(this.idProduct).subscribe(res => {
+      console.log(res);
       this.product = res;
-      console.log(this.product);
     });
   }
-
 }

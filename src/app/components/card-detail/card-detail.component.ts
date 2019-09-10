@@ -13,8 +13,8 @@ export class CardDetailComponent implements OnInit {
   constructor( private router: Router) { }
 
   presentDetail(){
-    let id = this.product.id
-    this.router.navigate(['/detail', id])
+    const id = this.product.id;
+    this.router.navigate(['/detail', id]);
   }
 
   ngOnInit() {
