@@ -1,6 +1,6 @@
-import { CarService } from './../services/car/car.service';
-import { ProductDetail } from './../models/productDetail';
-import { ProductService } from './../services/product/product.service';
+import { CarService } from '../../services/car/car.service';
+import { ProductDetail } from '../../models/productDetail';
+import { ProductService } from '../../services/product/product.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AlertController } from '@ionic/angular';

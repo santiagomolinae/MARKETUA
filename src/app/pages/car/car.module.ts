@@ -1,4 +1,4 @@
-import { CarProductComponent } from './../components/car-product/car-product.component';
+import { CarProductComponent } from '../../components/car-product/car-product.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
