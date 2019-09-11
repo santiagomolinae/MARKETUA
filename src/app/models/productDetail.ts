@@ -6,7 +6,7 @@ export interface ProductDetail {
     name: string;
     price: number;
     brand: string;
-    thumbanail: string;
+    thumbnail: string;
     images: Array<any>;
     category: Category;
     rating: number;

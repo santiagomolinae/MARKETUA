@@ -1,3 +1,4 @@
+import { CarService } from './../services/car/car.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarPage implements OnInit {
 
-  constructor() { }
+  productos: any;
+
+  constructor(private carService: CarService) { }
 
   ngOnInit() {
+    this.carService.getCar().then(prod => {
+      this.productos = prod;
+    });
   }
-
 }

@@ -9,7 +9,7 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   findProducts(searchText: string) {
-     return this.http.get<any>(`https://my-json-server.typicode.com/ebedoyaalzate/fakeServe/db`, {});
+     return this.http.get<any>(`https://my-json-server.typicode.com/ebedoyaalzate/fakeProducts/db`, {});
   }
 
   productDetail(id) {

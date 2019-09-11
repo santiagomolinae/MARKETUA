@@ -10,22 +10,26 @@ export class CarService {
   constructor(private storage: Storage) { }
 
   addToCar(id: string) {
+    const prod = {
+      id,
+      units: 1
+    };
     this.storage.get('car').then((val) => {
-      /*if (val) {
-        val.push([id, 1]);
+      let auxCar = val.filter(prod => prod.id !== id);
+      if (auxCar) {
+        auxCar.push(prod);
       } else {
-        val = [[id, 1]];
-      }*/
-      console.log(val);
-      this.storage.set('car', val);
+        auxCar = [prod];
+      }
+      this.storage.set('car', auxCar);
     });
   }
 
-  addUnit(id: string, unit: number) {
+  addUnit(id: string) {
     this.storage.get('car').then(val => {
       val.forEach(prod => {
-        if (prod[0] === id) {
-          prod[1] = unit;
+        if (prod.id === id) {
+          prod.units ++;
         }
       });
       this.storage.set('car', val);
@@ -33,9 +37,8 @@ export class CarService {
   }
 
   deleteProduct(id: string) {
-    let auxCar;
     this.storage.get('car').then((val) => {
-      auxCar = val.filter(pr => pr !== id);
+      const auxCar = val.filter(prod => prod.id !== id);
       this.storage.set('car', auxCar);
     });
   }

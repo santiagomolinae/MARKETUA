@@ -1,8 +1,6 @@
 import { ProductDetail } from './../models/productDetail';
 import { ProductService } from './../services/product/product.service';
-import { CarService } from './../services/car.service';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -16,11 +14,9 @@ export class HomePage implements OnInit {
   products: ProductDetail[];
 
   constructor(
-    private productService: ProductService) {
-  }
+    private productService: ProductService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   findProduct() {
     this.productService.findProducts(this.searchText).subscribe(res => {

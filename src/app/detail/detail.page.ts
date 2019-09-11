@@ -1,8 +1,8 @@
+import { CarService } from './../services/car/car.service';
 import { ProductDetail } from './../models/productDetail';
 import { ProductService } from './../services/product/product.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-detail',
@@ -16,7 +16,8 @@ export class DetailPage implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService) {}
+    private productService: ProductService,
+    private carService: CarService) {}
 
   ngOnInit() {
     this.findProduct();
@@ -27,5 +28,9 @@ export class DetailPage implements OnInit {
     this.productService.productDetail(this.idProduct).subscribe(res => {
       this.product = res;
     });
+  }
+
+  addToCar() {
+    this.carService.addToCar(this.idProduct);
   }
 }
