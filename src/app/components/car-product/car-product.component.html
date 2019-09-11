@@ -7,8 +7,13 @@
     <ion-card-title class="title">{{product.name}}</ion-card-title>
   </ion-card-header>
   <ion-card-content class="content">
-    <ion-button color="primary" class="button">
-      <ion-icon slot="icon-only" name="cart"></ion-icon>
-    </ion-button>
+    <div class="number-container">
+      <ion-button (click)="restUnits()">-</ion-button>
+      <div>{{units}}</div>
+      <ion-button (click)="addUnits()">+</ion-button>
+      <ion-button fill="outline" color="danger" (click)="deleteProduct()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </div>
   </ion-card-content>
 </ion-card>

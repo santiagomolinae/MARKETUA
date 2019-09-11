@@ -7,7 +7,7 @@
     <ion-card-title class="title">{{product.name}}</ion-card-title>
   </ion-card-header>
   <ion-card-content class="content">
-    <ion-button color="primary" class="button">
+    <ion-button color="primary" class="button" (click)="addCar(); $event.stopPropagation()">
       <ion-icon slot="icon-only" name="cart"></ion-icon>
     </ion-button>
   </ion-card-content>

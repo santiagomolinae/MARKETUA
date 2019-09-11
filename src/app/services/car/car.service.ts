@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
-
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarService {
+
+  private subject = new Subject<any>();
+  public changes = this.subject.asObservable();
 
   constructor(private storage: Storage) { }
 
@@ -14,22 +17,19 @@ export class CarService {
       id,
       units: 1
     };
-    this.storage.get('car').then((val) => {
-      let auxCar = val.filter(prod => prod.id !== id);
-      if (auxCar) {
-        auxCar.push(prod);
-      } else {
-        auxCar = [prod];
-      }
-      this.storage.set('car', auxCar);
+    this.storage.get('car').then((car) => {
+      car = car ? car : [];
+      car = car.filter(prod => prod.id != id);
+      car.push(prod);
+      this.storage.set('car', car);
     });
   }
 
-  addUnit(id: string) {
+  changeUnit(id: string, units: number) {
     this.storage.get('car').then(val => {
       val.forEach(prod => {
         if (prod.id === id) {
-          prod.units ++;
+          prod.units = units;
         }
       });
       this.storage.set('car', val);
@@ -41,10 +41,15 @@ export class CarService {
       const auxCar = val.filter(prod => prod.id !== id);
       this.storage.set('car', auxCar);
     });
+    this.subject.next(id);
   }
 
   getCar() {
     return this.storage.get('car');
+  }
+
+  changeProducts() {
+    this.subject.next();
   }
 
   deleteCar() {

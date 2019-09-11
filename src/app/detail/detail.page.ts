@@ -3,6 +3,7 @@ import { ProductDetail } from './../models/productDetail';
 import { ProductService } from './../services/product/product.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-detail',
@@ -17,7 +18,9 @@ export class DetailPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private carService: CarService) {}
+    private carService: CarService,
+    private alertController: AlertController
+  ) {}
 
   ngOnInit() {
     this.findProduct();
@@ -32,5 +35,15 @@ export class DetailPage implements OnInit {
 
   addToCar() {
     this.carService.addToCar(this.idProduct);
+    this.presentAlert();
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Exitoso',
+      message: 'El producto se agrego al carro',
+      buttons: ['OK']
+    });
+    await alert.present();
   }
 }
