@@ -2,6 +2,8 @@ import { CarService } from './../../services/car/car.service';
 import { ProductService } from './../../services/product/product.service';
 import { ProductDetail } from './../../models/productDetail';
 import { Component, OnInit, Input } from '@angular/core';
+import { AlertController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-car-product',
@@ -16,7 +18,8 @@ export class CarProductComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private carService: CarService
+    private carService: CarService,
+    private alertController: AlertController
   ) {}
 
   ngOnInit() {
@@ -45,6 +48,27 @@ export class CarProductComponent implements OnInit {
   }
 
   deleteProduct() {
-    this.carService.deleteProduct(this.id);
+    this.presentAlert();
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Eliminar Producto',
+      message: '¿Esta seguro de eliminar el producto del carro?',
+      buttons: [
+        {
+          text: 'Cancel',
+          cssClass: 'secondary'
+        },
+        {
+          text: 'OK',
+          cssClass: 'primary',
+          handler: () => {
+            this.carService.deleteProduct(this.id);
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
 }
